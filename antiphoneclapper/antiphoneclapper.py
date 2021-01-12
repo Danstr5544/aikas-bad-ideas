@@ -149,7 +149,7 @@ class AntiPhoneClapper(commands.Cog):
 
         f = open(text_file, "wb+")
         try:
-            result = self.bot.loop.run_in_executor(None, subprocess.call(["ffplay", video_file, "-autoexit", "-loglevel", "+debug"], stdout=f, stderr=subprocess.STDOUT, timeout=60))
+            result = self.bot.loop.run_in_executor(None, subprocess.call(["ffplay", video_file, "-autoexit", "-loglevel", "+debug", "-nodisp" "-an"], stdout=f, stderr=subprocess.STDOUT, timeout=60))
         except subprocess.CalledProcessError as e:
             log.error(e.output)
             return
